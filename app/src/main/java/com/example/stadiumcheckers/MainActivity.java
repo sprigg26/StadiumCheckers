@@ -3,7 +3,6 @@ package com.example.stadiumcheckers;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
