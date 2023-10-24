@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe.infoMessage;
+package edu.up.cs301.StadiumCheckers.infoMessage;
 
 import java.io.Serializable;
 
@@ -14,7 +14,7 @@ import edu.up.cs301.game.GameFramework.infoMessage.GameState;
  * @author Eric Imperio
  * @version July 2020
  */
-public class TTTState extends GameState implements Serializable {
+public class SCState extends GameState implements Serializable {
     //Tag for logging
     private static final String TAG = "TTTState";
 	private static final long serialVersionUID = 7552321013488624386L;
@@ -32,7 +32,7 @@ public class TTTState extends GameState implements Serializable {
     /**
      * Constructor for objects of class TTTState
      */
-    public TTTState()
+    public SCState()
     {
         // initialize the state to be a brand new game
         board = new char[3][3];
@@ -52,7 +52,7 @@ public class TTTState extends GameState implements Serializable {
      * @param original
      * 		the TTTState object that we want to clong
      */
-    public TTTState(TTTState original)
+    public SCState(SCState original)
     {
     	// create a new 3x3 array, and copy the values from
     	// the original
@@ -127,17 +127,17 @@ public class TTTState extends GameState implements Serializable {
     }
 
     public boolean equals(Object object){
-        if(! (object instanceof TTTState)) return false;
-        TTTState tttState = (TTTState) object;
+        if(! (object instanceof SCState)) return false;
+        SCState SCState = (SCState) object;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if(this.board[i][j] != tttState.board[i][j]){
+                if(this.board[i][j] != SCState.board[i][j]){
                     return false;
                 }
             }
         }
 
-        if (this.playerToMove != tttState.playerToMove || this.numSetupTurns != tttState.numSetupTurns || this.currentSetupTurn != tttState.currentSetupTurn){
+        if (this.playerToMove != SCState.playerToMove || this.numSetupTurns != SCState.numSetupTurns || this.currentSetupTurn != SCState.currentSetupTurn){
             return false;
         }
         return true;

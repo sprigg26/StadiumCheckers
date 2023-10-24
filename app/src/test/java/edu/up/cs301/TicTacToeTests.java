@@ -13,10 +13,10 @@ import edu.up.cs301.game.GameFramework.actionMessage.MyNameIsAction;
 import edu.up.cs301.game.GameFramework.actionMessage.ReadyAction;
 import edu.up.cs301.game.GameFramework.players.GamePlayer;
 import edu.up.cs301.game.R;
-import edu.up.cs301.tictactoe.TTTLocalGame;
-import edu.up.cs301.tictactoe.TTTMainActivity;
-import edu.up.cs301.tictactoe.infoMessage.TTTState;
-import edu.up.cs301.tictactoe.tttActionMessage.TTTMoveAction;
+import edu.up.cs301.StadiumCheckers.TTTLocalGame;
+import edu.up.cs301.StadiumCheckers.TTTMainActivity;
+import edu.up.cs301.StadiumCheckers.infoMessage.TTTState;
+import edu.up.cs301.StadiumCheckers.SCActionMessage.TTTMoveAction;
 
 import static org.junit.Assert.*;
 

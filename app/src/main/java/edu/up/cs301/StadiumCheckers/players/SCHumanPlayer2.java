@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe.players;
+package edu.up.cs301.StadiumCheckers.players;
 
 import android.graphics.Color;
 import android.view.View;
@@ -13,8 +13,8 @@ import edu.up.cs301.game.R;
 import edu.up.cs301.game.GameFramework.infoMessage.GameInfo;
 import edu.up.cs301.game.GameFramework.infoMessage.IllegalMoveInfo;
 import edu.up.cs301.game.GameFramework.infoMessage.NotYourTurnInfo;
-import edu.up.cs301.tictactoe.infoMessage.TTTState;
-import edu.up.cs301.tictactoe.tttActionMessage.TTTMoveAction;
+import edu.up.cs301.StadiumCheckers.infoMessage.SCState;
+import edu.up.cs301.StadiumCheckers.SCActionMessage.SCMoveAction;
 
 /**
  * A human (i.e., GUI) version of a tic-tac-toe player that gives the user
@@ -23,12 +23,12 @@ import edu.up.cs301.tictactoe.tttActionMessage.TTTMoveAction;
  * @author Steven R. Vegdahl 
  * @version July 2013
  */
-public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener {
+public class SCHumanPlayer2 extends GameHumanPlayer implements OnClickListener {
 	//Tag for logging
 	private static final String TAG = "TTTHumanPlayer2";
 	
 	// the game's state
-	TTTState state = null;
+	SCState state = null;
 	
 	/**
 	 * constuctor
@@ -36,7 +36,7 @@ public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 	 * @param name
 	 * 		the player's name
 	 */
-	public TTTHumanPlayer2(String name) {
+	public SCHumanPlayer2(String name) {
 		super(name);
 	}
 
@@ -157,7 +157,7 @@ public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 		int[] coord = mapNumberToCoord(val);
 		
 		// send a move action to the game
-		game.sendAction(new TTTMoveAction(this, coord[0], coord[1]));
+		game.sendAction(new SCMoveAction(this, coord[0], coord[1]));
 	}
 	
 	/**
@@ -214,14 +214,14 @@ public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 			// if the move is out of turn or otherwise illegal, flash the screen
 			flash(Color.RED, 50);
 		}
-		else if (!(info instanceof TTTState)) {
+		else if (!(info instanceof SCState)) {
 			// if it's not a TTTState object, ignore
 			return;
 		}
 		else {
 			// update the state variable, then update the GUI to reflect the updated
 			// state
-			state = (TTTState)info;
+			state = (SCState)info;
 			setButtonLocationsAndColors();
 		}
 	}

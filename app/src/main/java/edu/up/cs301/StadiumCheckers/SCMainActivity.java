@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.StadiumCheckers;
 
 import java.util.ArrayList;
 
@@ -11,11 +11,11 @@ import edu.up.cs301.game.GameFramework.utilities.Saving;
 import edu.up.cs301.game.R;
 import edu.up.cs301.game.GameFramework.gameConfiguration.GameConfig;
 import edu.up.cs301.game.GameFramework.gameConfiguration.GamePlayerType;
-import edu.up.cs301.tictactoe.infoMessage.TTTState;
-import edu.up.cs301.tictactoe.players.TTTComputerPlayer1;
-import edu.up.cs301.tictactoe.players.TTTComputerPlayer2;
-import edu.up.cs301.tictactoe.players.TTTHumanPlayer1;
-import edu.up.cs301.tictactoe.players.TTTHumanPlayer2;
+import edu.up.cs301.StadiumCheckers.infoMessage.SCState;
+import edu.up.cs301.StadiumCheckers.players.SCComputerPlayer1;
+import edu.up.cs301.StadiumCheckers.players.SCComputerPlayer2;
+import edu.up.cs301.StadiumCheckers.players.SCHumanPlayer1;
+import edu.up.cs301.StadiumCheckers.players.SCHumanPlayer2;
 
 /**
  * this is the primary activity for Counter game
@@ -24,7 +24,7 @@ import edu.up.cs301.tictactoe.players.TTTHumanPlayer2;
  * @author Eric Imperio
  * @version July 2020
  */
-public class TTTMainActivity extends GameMainActivity {
+public class SCMainActivity extends GameMainActivity {
 	//Tag for logging
 	private static final String TAG = "TTTMainActivity";
 	public static final int PORT_NUMBER = 5213;
@@ -41,35 +41,35 @@ public class TTTMainActivity extends GameMainActivity {
 		// yellow-on-blue GUI
 		playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTHumanPlayer1(name, R.layout.ttt_human_player1);
+				return new SCHumanPlayer1(name, R.layout.ttt_human_player1);
 			}
 		});
 		
 		// red-on-yellow GUI
 		playerTypes.add(new GamePlayerType("Local Human Player (yellow-red)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTHumanPlayer1(name, R.layout.ttt_human_player1_flipped);
+				return new SCHumanPlayer1(name, R.layout.ttt_human_player1_flipped);
 			}
 		});
 
 		// note that most games don't require a second human player class
 		playerTypes.add(new GamePlayerType("Local Human Player (game of 33)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTHumanPlayer2(name);
+				return new SCHumanPlayer2(name);
 			}
 		});
 		
 		// dumb computer player
 		playerTypes.add(new GamePlayerType("Computer Player (dumb)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTComputerPlayer1(name);
+				return new SCComputerPlayer1(name);
 			}
 		});
 		
 		// smarter computer player
 		playerTypes.add(new GamePlayerType("Computer Player (smart)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTComputerPlayer2(name);
+				return new SCComputerPlayer2(name);
 			}
 		});
 
@@ -102,8 +102,8 @@ public class TTTMainActivity extends GameMainActivity {
 	@Override
 	public LocalGame createLocalGame(GameState gameState){
 		if(gameState == null)
-			return new TTTLocalGame();
-		return new TTTLocalGame((TTTState) gameState);
+			return new SCLocalGame();
+		return new SCLocalGame((SCState) gameState);
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class TTTMainActivity extends GameMainActivity {
 		String appName = getGameString(gameName);
 		super.loadGame(appName);
 		Logger.log(TAG, "Loading: " + gameName);
-		return (GameState) new TTTState((TTTState) Saving.readFromFile(appName, this.getApplicationContext()));
+		return (GameState) new SCState((SCState) Saving.readFromFile(appName, this.getApplicationContext()));
 	}
 
 }

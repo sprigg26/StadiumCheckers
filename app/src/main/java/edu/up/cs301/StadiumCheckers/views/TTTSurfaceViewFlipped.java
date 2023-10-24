@@ -1,12 +1,10 @@
-package edu.up.cs301.tictactoe.views;
+package edu.up.cs301.StadiumCheckers.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.util.AttributeSet;
-
-import edu.up.cs301.tictactoe.views.TTTSurfaceView;
 
 /**
  * A SurfaceView which allows which an animation to be drawn on it by a

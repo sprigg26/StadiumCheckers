@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe.tttActionMessage;
+package edu.up.cs301.StadiumCheckers.SCActionMessage;
 
 import edu.up.cs301.game.GameFramework.players.GamePlayer;
 import edu.up.cs301.game.GameFramework.actionMessage.GameAction;
@@ -10,7 +10,7 @@ import edu.up.cs301.game.GameFramework.actionMessage.GameAction;
  * @author Steven R. Vegdahl
  * @version 2 July 2001
  */
-public class TTTMoveAction extends GameAction {
+public class SCMoveAction extends GameAction {
     //Tag for logging
     private static final String TAG = "TTTMoveAction";
 	private static final long serialVersionUID = -2242980258970485343L;
@@ -26,7 +26,7 @@ public class TTTMoveAction extends GameAction {
      * @param row the row of the square selected (0-2)
      * @param col the column of the square selected
      */
-    public TTTMoveAction(GamePlayer player, int row, int col)
+    public SCMoveAction(GamePlayer player, int row, int col)
     {
         // invoke superclass constructor to set the player
         super(player);

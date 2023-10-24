@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe.views;
+package edu.up.cs301.StadiumCheckers.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 
 import edu.up.cs301.game.GameFramework.utilities.FlashSurfaceView;
-import edu.up.cs301.tictactoe.infoMessage.TTTState;
+import edu.up.cs301.StadiumCheckers.infoMessage.SCState;
 
 /**
  * A SurfaceView which allows which an animation to be drawn on it by a
@@ -48,7 +48,7 @@ public class TTTSurfaceView extends FlashSurfaceView {
 	 */
 
     // the game's state
-    protected TTTState state;
+    protected SCState state;
 
     // the offset from the left and top to the beginning of our "middle square"; one
     // of these will always be zero
@@ -89,7 +89,7 @@ public class TTTSurfaceView extends FlashSurfaceView {
     }// init
 
 
-    public void setState(TTTState state) {
+    public void setState(SCState state) {
         this.state = state;
     }
 

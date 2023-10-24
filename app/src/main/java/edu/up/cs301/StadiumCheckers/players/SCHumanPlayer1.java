@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe.players;
+package edu.up.cs301.StadiumCheckers.players;
 
 import android.graphics.Color;
 import android.graphics.Point;
@@ -12,9 +12,9 @@ import edu.up.cs301.game.GameFramework.infoMessage.GameInfo;
 import edu.up.cs301.game.GameFramework.infoMessage.IllegalMoveInfo;
 import edu.up.cs301.game.GameFramework.infoMessage.NotYourTurnInfo;
 import edu.up.cs301.game.GameFramework.utilities.Logger;
-import edu.up.cs301.tictactoe.infoMessage.TTTState;
-import edu.up.cs301.tictactoe.tttActionMessage.TTTMoveAction;
-import edu.up.cs301.tictactoe.views.TTTSurfaceView;
+import edu.up.cs301.StadiumCheckers.infoMessage.SCState;
+import edu.up.cs301.StadiumCheckers.SCActionMessage.SCMoveAction;
+import edu.up.cs301.StadiumCheckers.views.TTTSurfaceView;
 
 /**
  * A GUI that allows a human to play tic-tac-toe. Moves are made by clicking
@@ -23,7 +23,7 @@ import edu.up.cs301.tictactoe.views.TTTSurfaceView;
  * @author Steven R. Vegdahl
  * @version September 2016
  */
-public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchListener {
+public class SCHumanPlayer1 extends GameHumanPlayer implements View.OnTouchListener {
     //Tag for logging
     private static final String TAG = "TTTHumanPlayer1";
 
@@ -41,7 +41,7 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
      * @param layoutId
      *      the id of the layout to use
      */
-    public TTTHumanPlayer1(String name, int layoutId) {
+    public SCHumanPlayer1(String name, int layoutId) {
         super(name);
         this.layoutId = layoutId;
     }
@@ -61,11 +61,11 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
             // if the move was out of turn or otherwise illegal, flash the screen
             surfaceView.flash(Color.RED, 50);
         }
-        else if (!(info instanceof TTTState))
+        else if (!(info instanceof SCState))
             // if we do not have a TTTState, ignore
             return;
         else {
-            surfaceView.setState((TTTState)info);
+            surfaceView.setState((SCState)info);
             surfaceView.invalidate();
             Logger.log(TAG, "receiving");
         }
@@ -128,7 +128,7 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         if (p == null) {
             surfaceView.flash(Color.RED, 50);
         } else {
-            TTTMoveAction action = new TTTMoveAction(this, p.y, p.x);
+            SCMoveAction action = new SCMoveAction(this, p.y, p.x);
             Logger.log("onTouch", "Human player sending TTTMA ...");
             game.sendAction(action);
             surfaceView.invalidate();

@@ -1,10 +1,10 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.StadiumCheckers;
 
 import edu.up.cs301.game.GameFramework.players.GamePlayer;
 import edu.up.cs301.game.GameFramework.LocalGame;
 import edu.up.cs301.game.GameFramework.actionMessage.GameAction;
-import edu.up.cs301.tictactoe.infoMessage.TTTState;
-import edu.up.cs301.tictactoe.tttActionMessage.TTTMoveAction;
+import edu.up.cs301.StadiumCheckers.infoMessage.SCState;
+import edu.up.cs301.StadiumCheckers.SCActionMessage.SCMoveAction;
 
 /**
  * The TTTLocalGame class for a simple tic-tac-toe game.  Defines and enforces
@@ -15,7 +15,7 @@ import edu.up.cs301.tictactoe.tttActionMessage.TTTMoveAction;
  * @version January 2020
  */
 
-public class TTTLocalGame extends LocalGame {
+public class SCLocalGame extends LocalGame {
 	//Tag for logging
 	private static final String TAG = "TTTLocalGame";
 
@@ -29,22 +29,22 @@ public class TTTLocalGame extends LocalGame {
 	/**
 	 * Constructor for the TTTLocalGame.
 	 */
-	public TTTLocalGame() {
+	public SCLocalGame() {
 
 		// perform superclass initialization
 		super();
 
 		// create a new, unfilled-in TTTState object
-		super.state = new TTTState();
+		super.state = new SCState();
 	}
 
 	/**
 	 * Constructor for the TTTLocalGame with loaded tttState
-	 * @param tttState
+	 * @param SCState
 	 */
-	public TTTLocalGame(TTTState tttState){
+	public SCLocalGame(SCState SCState){
 		super();
-		super.state = new TTTState(tttState);
+		super.state = new SCState(SCState);
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class TTTLocalGame extends LocalGame {
 		// find a winner
 		char resultChar = ' ';
 
-		TTTState state = (TTTState) super.state;
+		SCState state = (SCState) super.state;
 
 		// to all three lines in the current group
 		for (int i = 0; i < 3; i++) {
@@ -145,7 +145,7 @@ public class TTTLocalGame extends LocalGame {
 	@Override
 	protected void sendUpdatedStateTo(GamePlayer p) {
 		// make a copy of the state, and send it to the player
-		p.sendInfo(new TTTState(((TTTState) state)));
+		p.sendInfo(new SCState(((SCState) state)));
 
 	}
 
@@ -159,7 +159,7 @@ public class TTTLocalGame extends LocalGame {
 	 * 		true iff the player is allowed to move
 	 */
 	protected boolean canMove(int playerIdx) {
-		return playerIdx == ((TTTState)state).getWhoseMove();
+		return playerIdx == ((SCState)state).getWhoseMove();
 	}
 
 	/**
@@ -174,8 +174,8 @@ public class TTTLocalGame extends LocalGame {
 	protected boolean makeMove(GameAction action) {
 
 		// get the row and column position of the player's move
-		TTTMoveAction tm = (TTTMoveAction) action;
-		TTTState state = (TTTState) super.state;
+		SCMoveAction tm = (SCMoveAction) action;
+		SCState state = (SCState) super.state;
 
 		int row = tm.getRow();
 		int col = tm.getCol();

@@ -20,8 +20,8 @@ import edu.up.cs301.game.GameFramework.gameConfiguration.GameConfig;
 import edu.up.cs301.game.GameFramework.utilities.Logger;
 import edu.up.cs301.game.GameFramework.utilities.Saving;
 import edu.up.cs301.game.R;
-import edu.up.cs301.tictactoe.TTTMainActivity;
-import edu.up.cs301.tictactoe.infoMessage.TTTState;
+import edu.up.cs301.StadiumCheckers.TTTMainActivity;
+import edu.up.cs301.StadiumCheckers.infoMessage.TTTState;
 
 import static org.junit.Assert.*;
 
