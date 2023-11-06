@@ -26,6 +26,7 @@ public class GameView extends SurfaceView {
     private final int[] ringSlots = {4, 5, 4, 6, 5, 6, 7, 6};
 
     private final HashMap<Point, Integer> positions = new HashMap<>();
+    private final int[] securedMarbles = new int[4];
 
     public GameView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -90,8 +91,13 @@ public class GameView extends SurfaceView {
         blackPaint.setStyle(Paint.Style.FILL);
 
         Random random = new Random();
+        securedMarbles[0] = 0;
+        for (int i = 1; i < 4; i++) {
+            securedMarbles[i] = random.nextInt(5);
+        }
+
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 5 - securedMarbles[i]; j++) {
                 Point p;
                 do {
                     int ring = random.nextInt(8);
@@ -224,6 +230,15 @@ public class GameView extends SurfaceView {
 
         int rBase = (Math.min(width, height) * 3) / 8;
         ringB = false;
+
+        for (int i = 0; i < 4; i++) {
+            canvas.drawRect(width - (rBase / 8f) * (1.5f * i), height - rBase / 1.6f,
+                    width - (rBase / 8f) * (1.5f * i + 1), height, colorPaints[i]);
+            for (int j = 0; j < securedMarbles[i]; j++) {
+                drawMarble(width - (rBase / 8f) * (1.5f * i + 0.5f),
+                        height - (rBase / 8f) * (j + 0.5f), i, rBase, canvas);
+            }
+        }
 
         drawOuterRing(canvas, rBase);
         for (int i = 7; i >= 1; i--) {
